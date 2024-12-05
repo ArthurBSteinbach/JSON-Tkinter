@@ -18,16 +18,20 @@ def readData():
         return dataBase  
     else:
         with open("data.json", "r") as f:
-            dataGet = json.load(f)
+            dataGet = json.load(f,)
             dataLabel.config(text=dataGet)
         return dataGet
 
 def sendData(dataGet):
     with open("data.json", "w") as f:
-        json.dump(dataGet, f, indent=4)
-
+        dataGet = json.dump(dataGet, f, indent=4)
+        dataLabel.config(text=dataGet)
+        return dataGet
 def cls():
     os.system("cls")
+
+def rootDestroy():
+    root.destroy()
 
 def showEntry():
     readData()
@@ -45,10 +49,13 @@ def showEntry():
         if key.replace(' ','') or value.replace(' ',''):
             char = " ✔"
             existingData[key] = value
+            entry_button.config(bg="green",fg="white")
         else:
             char = " ❌"
+            entry_button.config(bg="red",fg="white")
             
     else:
+        entry_button.config(bg="red",fg="white")
         char = " ❌"
 
     entry_text.config(text="Key " + key + char)
@@ -76,9 +83,12 @@ dataLabel = tk.Label(root, text="")
 dataLabel.grid(row=3, column=0, columnspan=2)
 
 buttonCls = tk.Button(root, text="Clean Terminal", command=cls)
-buttonCls.grid(row=4, column=0, columnspan=2, pady=10)
+buttonCls.grid(row=4, column=0, columnspan=2, pady=30)
+
+buttonExit = tk.Button(root, text="Exit", command=rootDestroy, width=10)
+buttonExit.grid(row=5,column=0,columnspan=2)
 
 root.mainloop()
 
-if os.path.exists("data.json"):
-    os.remove("data.json")
+#if os.path.exists("data.json"):
+#   os.remove("data.json")
