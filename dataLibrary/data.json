@@ -1,3 +1,7 @@
 {
-    "Hello" : "World"
+    "Hello": "World",
+    "Left": "Right",
+    "Begin": "End",
+    "a": "b",
+    "b": "a"
 }
