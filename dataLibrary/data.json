@@ -1,7 +1,7 @@
 {
     "Hello": "World",
-    "Left": "Right",
-    "Begin": "End",
-    "a": "b",
-    "b": "a"
+    "Math": "100",
+    "Geo": "96",
+    "Physic": "77",
+    "English": "100"
 }

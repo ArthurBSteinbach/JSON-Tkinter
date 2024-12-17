@@ -1,0 +1,8 @@
+{
+    "content": {
+        "test1": {
+            "property1": "newValue1",
+            "property2": "newValue2"
+        }
+    }
+}
